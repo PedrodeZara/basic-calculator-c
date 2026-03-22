@@ -2,75 +2,58 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int soma(int num1, int num2){
-    printf("\n\nEscolha dois números\n");
-    scanf("%d %d",&num1, &num2);
-    num1 = num1 + num2;
-    return num1;
+int soma(int a, int b){
+    return a + b;
 }
 
-int sub(int num1, int num2){
-    printf("\n\nEscolha dois números\n");
-    scanf("%d %d",&num1, &num2);
-    num1 = num1 - num2;
-    return num1;
+int sub(int a, int b){
+    return a - b;
 }
 
-int mult(int num1, int num2){
-    printf("\n\nEscolha dois números\n");
-    scanf("%d %d",&num1, &num2);
-    num1 = num1 * num2;
-    return num1;
+int mult(int a, int b){
+    return a * b;
 }
 
-int divi(int num1, int num2) {
-    printf("\n\nEscolha dois números:\n");
-    scanf("%d %d",&num1, &num2);
-
-        if(num1 == 0 || num2 == 0){
-            printf("Expressão inválida"); 
-            num1 = 0;
-            return num1;  
-        }
-
-        else {
-            num1 = num1 / num2;
-            return num1;
-        }
+int divi(int a, int b){
+    if(b == 0){
+        printf("\nErro: divisÃ£o por zero!\n");
+        return 0;
+    }
+    return a / b;
 }
 
-
-void main() {
-    int escolha,num1,num2;
+int main() {
+    int escolha, num1, num2, resultado;
 
     setlocale(LC_ALL, "Portuguese");
 
-    printf("\t\tBoa tarde\t\t");
-    printf("\n\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão");
-    printf("\n\nEscolha uma das operações acima: ");
-    scanf("%d",&escolha);
-    
-    if(escolha == 1) {
-        int res = soma(num1,num2);
-        printf("\nResultado: %d",res);
+    printf("\n\t\tCalculadora\n");
+    printf("\n1. Soma\n2. SubtraÃ§Ã£o\n3. MultiplicaÃ§Ã£o\n4. DivisÃ£o");
+    printf("\n\nEscolha uma opÃ§Ã£o: ");
+    scanf("%d", &escolha);
+
+    printf("\nDigite dois nÃºmeros: ");
+    scanf("%d %d", &num1, &num2);
+
+    switch(escolha){
+        case 1:
+            resultado = soma(num1, num2);
+            break;
+        case 2:
+            resultado = sub(num1, num2);
+            break;
+        case 3:
+            resultado = mult(num1, num2);
+            break;
+        case 4:
+            resultado = divi(num1, num2);
+            break;
+        default:
+            printf("\nOpÃ§Ã£o invÃ¡lida!\n");
+            return 1;
     }
 
-    else if(escolha == 2) {
-        int res = sub(num1,num2);
-        printf("\nResultado: %d",res);
-    }
+    printf("\nResultado: %d\n", resultado);
 
-    else if(escolha == 3) {
-        int res = mult(num1,num2);
-        printf("\nResultado: %d",res);
-    }
-
-    else if(escolha == 4) {
-        int res = divi(num1,num2);
-        printf("\nResultado: %d",res);
-    }
-
-    else {
-        printf("Valor inserido inválido");
-    }
+    return 0;
 }
