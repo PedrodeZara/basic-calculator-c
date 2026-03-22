@@ -1,4 +1,4 @@
-# CLI Calculator (C)
+# Basic Calculator (C)
 
 Aplicação desenvolvida em linguagem C para realização de operações matemáticas básicas via terminal. O projeto tem como foco a prática de lógica de programação, controle de fluxo e manipulação de entrada do usuário.
 
